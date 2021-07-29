@@ -1,0 +1,43 @@
+<div *ngFor="let comment of postComment">
+    <div class="mat-caption">
+        <span class="text-bold">RA-MICHAEL </span> {{ comment }}
+    </div>
+</div>
+<mat-divider></mat-divider>
+<div class="comment-container">
+    <button mat-icon-button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;" matTooltip="Emoji"
+        matTooltipPosition="before" matTooltipShowDelay="200" matTooltipHideDelay="200" disableRipple>
+        <mat-icon class="stickers">sentiment_satisfied_alt</mat-icon>
+    </button>
+    <div class="comment-form">
+        <mat-form-field class="comment-full-width" appearance="legacy" floatLabel="never">
+            <mat-label>Ajouter un commentaire</mat-label>
+            <textarea matInput id="commentaire" name="commentaire" cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="2"
+                placeholder="Ex. J'aime beaucoup commenter..." [(ngModel)]="comment" (keydown.enter)="onPost()"></textarea>
+        </mat-form-field>
+    </div>
+    <button mat-icon-button (click)="onPost()" class="senders">
+        <mat-icon>send</mat-icon>
+    </button>
+</div>
+<emoji-mart [style]="{ position: 'absolute', bottom: '60px', left: '5px' }"  color="#e6683c" [darkMode]='false' [showPreview]='false' class="" *ngIf="isEmojiPickerVisible"
+    (emojiSelect)="addEmoji($event)" title="Choisi ton emoji" [i18n]="{ 
+        search: 'Recherche',
+        emojilist: 'Liste des emoji',
+        notfound: 'Aucun emoji trouvé',
+        clear: 'Effacer',
+        categories: {
+            search: 'Résultats de recherche',
+            recent: 'Les plus populaires',
+            people: 'Smileys et personnes',
+            nature: 'Animals et nature',
+            foods: 'Nouritures et boissons',
+            activity: 'Activités',
+            places: 'Voyages et lieux',
+            objects: 'Objets',
+            symbols: 'Symboles',
+            flags: 'Drapeaux',
+            custom: 'Custom'
+        }
+     }" set="facebook">
+</emoji-mart>

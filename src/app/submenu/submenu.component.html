@@ -1,0 +1,51 @@
+<mat-tab-group>
+    <mat-tab label="ENREGISTREMENTS">
+        <div class="fav" *ngFor="let item of filterByFavorite">
+
+            <div class="image__wrap">
+                <img class="image__img" [src]="item.post" />
+                <div class="image__overlay">
+                    <div class="img__description">
+                        <div class="with-icon">
+                            <mat-icon>favorite</mat-icon>
+                            <span>
+                                {{item.numberOfLikes}}
+                            </span>
+                        </div>
+                        <div class="with-icon">
+                            <mat-icon color="" class="to-flip">chat_bubble</mat-icon>
+                            <span>
+                                {{item.numberOfComments}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-tab>
+    <mat-tab label="PUBLICATIONS">
+        <div class="" *ngFor="let item of filterByPost">
+        
+            <div class="image__wrap">
+                <img class="image__img" [src]="item.post" />
+                <div class="image__overlay">
+                    <div class="img__description">
+                        <div class="with-icon">
+                            <mat-icon>favorite</mat-icon>
+                            <span>
+                                {{item.numberOfLikes}}
+                            </span>
+                        </div>
+                        <div class="with-icon">
+                            <mat-icon color="" class="to-flip">chat_bubble</mat-icon>
+                            <span>
+                                {{item.numberOfComments}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

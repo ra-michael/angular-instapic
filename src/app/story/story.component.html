@@ -1,0 +1,8 @@
+<mat-card class="story-box">
+    <div *ngFor="let item of list_user">
+        <div class="box">
+            <img mat-card-avatar [src]="item.photo" alt="">
+            <span class="mat-caption text-bold">{{ item.name }} <span *ngIf="item.name === 'ISPM'"><mat-icon color="primary" class="verified">verified</mat-icon></span> </span>
+        </div>
+    </div>
+</mat-card>

@@ -1,0 +1,47 @@
+.story-box {
+  display: flex;
+  margin-top: 100px;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+mat-card {
+  max-width: 600px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.box img {
+  background-image: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  border: 2px solid #e6683c;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.mat-caption:hover {
+  text-decoration: underline;
+}
+
+.verified {
+  font-size: 15px;
+  vertical-align: middle;
+  display: inline;
+}

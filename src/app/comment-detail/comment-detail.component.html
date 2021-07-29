@@ -1,0 +1,60 @@
+<div class="container">
+
+    <div class="main-content">
+    
+        <div *ngFor="let item of filterByChoosen" class="wrapper">
+            <mat-card class="card-wrapper">
+                <mat-card-header>
+                    <div mat-card-avatar style="background-image: url({{item.profile}});
+          background-size: cover;"></div>
+                    <mat-card-title>{{ item.user }}</mat-card-title>
+                    <mat-card-subtitle>{{ item.title }}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="item.post" alt="Post">
+                <mat-card-actions>
+                    <div class="action-btn">
+                        <button mat-icon-button class="reaction-box" (click)="onLiked(item)" matTooltip="Like"
+                            matTooltipPosition="before" matTooltipShowDelay="200" matTooltipHideDelay="200">
+                            <mat-icon *ngIf="item.isLiked" color="warn">favorite</mat-icon>
+                            <mat-icon *ngIf="!item.isLiked" color="">favorite_border</mat-icon>
+                        </button>
+                        <button mat-icon-button [routerLink]="['/comment', item.id]">
+                            <mat-icon color="" class="to-flip">chat_bubble_outline</mat-icon>
+                        </button>
+                        <button mat-icon-button matTooltip="Partager" matTooltipPosition="after" matTooltipShowDelay="200"
+                            matTooltipHideDelay="200">
+                            <mat-icon color="" class="to-flip">reply</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="onFavorite(item)" class="bookmark" matTooltip="Ajouter aux favoris"
+                            matTooltipPosition="below" matTooltipShowDelay="200" matTooltipHideDelay="200">
+                            <mat-icon *ngIf="item.isFavorite" color="">bookmark</mat-icon>
+                            <mat-icon *ngIf="!item.isFavorite" color="">bookmark_border</mat-icon>
+                        </button>
+                    </div>
+                    <div class="reaction-container">
+                        <div mat-card-avatar style="background-image: url('/assets/images/male1.png');
+                                  background-size: cover; transform: scale(0.8);">
+                        </div>
+                        <div class="mat-caption">
+                            Aimé par <span class="text-bold">mika_admin </span> et <span class="text-bold">{{
+                                item.numberOfLikes }} {{
+                                (item.numberOfLikes >
+                                1) ? "autres personnes." : "autre personne." }}</span>
+                        </div>
+                    </div>
+                </mat-card-actions>
+                <mat-card-content>
+                    <p class="mat-caption">
+                        <span class="text-bold">{{ item.user }} </span>{{ item.description }}
+                    </p>
+                </mat-card-content>
+                <div *ngFor="let item of filterComment">
+                    <div class="mat-caption">
+                        <span class="text-bold">{{ item.user }} </span> {{ item.texte }}
+                    </div>
+                </div>
+                <app-comment></app-comment>
+            </mat-card>
+        </div>
+    </div>
+</div>

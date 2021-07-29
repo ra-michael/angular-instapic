@@ -1,0 +1,19 @@
+<mat-toolbar color="" class="navbar">
+    <div class="title">
+        Instapic
+    </div>
+    <div>
+        <button mat-icon-button class="" matTooltip="Accueil" matTooltipPosition="below" matTooltipShowDelay="200"
+            matTooltipHideDelay="200">
+            <mat-icon color="" [routerLink]="['/accueil']" routerLinkActive="router-link-active">home</mat-icon>
+        </button>
+        <button mat-icon-button class="" matTooltip="Notifications" matTooltipPosition="below" matTooltipShowDelay="200"
+            matTooltipHideDelay="200">
+            <mat-icon>favorite_outline</mat-icon>
+        </button>
+        <button mat-icon-button mat-card-avatar
+            style="background-image: url('/assets/images/Mika.jpg'); background-size: cover; transform: scale(0.7); padding-top: 10px; margin-left: 4px;"
+            [routerLink]="['/profil']" routerLinkActive="router-link-active">
+        </button>
+    </div>
+</mat-toolbar>
